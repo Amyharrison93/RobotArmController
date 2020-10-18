@@ -6,6 +6,9 @@ float AngleToPWM(float angle, float maxAngle)
     float 
         pwm;
 
+    maxAngle = maxAngle;
+    angle = angle;
+
     pwm = angle/maxAngle;
 
     return pwm;
@@ -25,11 +28,24 @@ float CalculateDutyCycle(float pwm, float frequency)
     return dutyCycle;
 }
 
-//write cycle to the Servo 
-void ServoMove(float dutyCycle, float period, int pin)
+//move a joint
+void MoveJointByAngle(float angle, float maxAngle, int pin)
 {
-    digitalWrite(HIGH, pin);
-    delay(period*dutyCycle);
-    digitalWrite(LOW, pin);
-    delay(period - (period*dutyCycle));
+    int 
+        frequency;
+    float 
+        pwm,
+        dutyCycle;
+        
+    pwm = AngleToPWM(angle, maxAngle);
+
+    if (pin == 5 || pin == 6)
+        frequency = 980;
+    
+    else
+        frequency = 490;
+  
+    dutyCycle = CalculateDutyCycle(pwm, frequency);
+
+    analogWrite(pin, dutyCycle);
 }

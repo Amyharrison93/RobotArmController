@@ -1,14 +1,22 @@
 //servo control
 #include "ServoController.h"
+
+float 
+  dutyCycle,
+  angle,
+  pwm,
+  frequency,
+  maxAngle = 180;
+
+int   
+  pin;
+
 void setup() 
 {
   // put your setup code here, to run once:S
-  
 }
 
 void loop() 
 {
-  // put your main code here, to run repeatedly:
-  
-  analogWrite(PIN_A0, 0);
+  MoveJointByAngle(angle, maxAngle, pin);
 }
