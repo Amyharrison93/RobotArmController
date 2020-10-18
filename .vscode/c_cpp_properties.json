@@ -3,10 +3,12 @@
         {
             "name": "Win32",
             "includePath": [
+                "${workspaceRoot}",
                 "C:\\Program Files (x86)\\Arduino\\tools\\**",
                 "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\**",
                 "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\**",
-                "C:\\Program Files (X86)\\Arduino\\libraries\\**"
+                "C:\\Program Files (X86)\\Arduino\\libraries\\**",
+                "C:\\Users\\AmyCa\\OneDrive\\Documents\\Arduino\\libraries\\**"
             ],
             "forcedInclude": [
                 "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino\\Arduino.h"

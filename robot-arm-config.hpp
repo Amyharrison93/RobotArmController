@@ -9,6 +9,12 @@ const int frequencyLow = 490;
 //servo constraints
 const float maxAngle = 180;
 
+//number of segments to arm and lengths in mm
+const int armSegments = 3;
+const int arm1Length = 300;
+const int arm2Length = 300;
+const int arm3Length = 300;
+
 //joint definitions uno:3, 5, 6, 9, 10, 11
 const int baseAxisZ = 3;
 const int arm1AxisX = 5;
