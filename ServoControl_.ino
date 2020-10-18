@@ -2,10 +2,7 @@
 #include "ServoController.h"
 
 float 
-  dutyCycle,
   angle,
-  pwm,
-  frequency,
   maxAngle = 180;
 
 int   
@@ -13,10 +10,12 @@ int
 
 void setup() 
 {
-  // put your setup code here, to run once:S
+  // pin definitions
 }
 
 void loop() 
 {
+  //calculate 
+  //move joint (wrap in [for each], also smooth)
   MoveJointByAngle(angle, maxAngle, pin);
 }
