@@ -1,12 +1,9 @@
 //servo control
 #include "ServoController.h"
+#include "RobotArmConfig.h"
 
 float 
-  angle,
-  maxAngle = 180;
-
-int   
-  pin;
+  angle = 90;
 
 void setup() 
 {
@@ -17,5 +14,6 @@ void loop()
 {
   //calculate 
   //move joint (wrap in [for each], also smooth)
-  MoveJointByAngle(angle, maxAngle, pin);
+
+  MoveJointByAngle(angle, maxAngle, baseAxisZ);
 }

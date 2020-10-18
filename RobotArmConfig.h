@@ -4,6 +4,9 @@
 const int frequencyHigh = 980;
 const int frequencyLow = 490;
 
+//servo constraints
+const float maxAngle = 180;
+
 //joint definitions uno:3, 5, 6, 9, 10, 11
 const int baseAxisZ = 3;
 const int arm1AxisX = 5;
@@ -16,6 +19,9 @@ const int toolAxisX = 11;
 const bool proportionalController = true;
 const bool integralController = true;
 const bool dirivetiveController = true;
+
+//sensor definitions
+const bool IMU = false;
 
 //PID controller definitions, change usually between 0 and 1
 const float kp = 0;

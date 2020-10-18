@@ -1,6 +1,6 @@
 {
     "board": "arduino:avr:uno",
     "programmer": "AVR ISP",
-    "sketch": "ServoControl_.ino",
+    "sketch": "_Main_.ino",
     "port": "COM6"
 }
