@@ -1,5 +1,5 @@
-#include "ServoController.h"
-#include "RobotArmConfig.h"
+#include "servo-controller.h"
+#include "robot-arm-config.hpp"
 
 //convert angles to PWM value between 0 and 1
 float AngleToPWM(float angle, float maxAngle)

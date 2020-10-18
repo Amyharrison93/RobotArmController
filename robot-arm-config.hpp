@@ -1,4 +1,6 @@
 //add configuration elements to this file for easy editing.
+#ifndef ROBOT_ARM_CONFIG_H
+#define ROBOT_ARM_CONFIG_H
 
 //frequency of pins uno: 490, 980
 const int frequencyHigh = 980;
@@ -28,3 +30,4 @@ const float kp = 0;
 const float ki = 0;
 const float kd = 0;
 
+#endif

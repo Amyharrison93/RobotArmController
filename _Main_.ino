@@ -1,6 +1,6 @@
 //servo control
-#include "ServoController.h"
-#include "RobotArmConfig.h"
+#include "servo-controller.h"
+#include "robot-arm-config.hpp"
 
 float 
   angle = 90;
