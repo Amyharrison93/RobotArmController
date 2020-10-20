@@ -5,7 +5,9 @@
 using std::vector;
 
 //robot arm world position, change reletive to what you want to be moving to
+// format: {X, Y, Z, wX, wY, wZ}
 const vector<float> worldCoordinatePose = {0,0,0,0,0,0};
+const vector<float> toolPoseOffset = {0,0,0,0,0,0};
 
 //frequency of pins uno: 490, 980
 const int frequencyHigh = 980;
