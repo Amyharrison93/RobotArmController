@@ -10,6 +10,7 @@ float jointDistance = 0;
 float toolPose[5] = {0};
 float armZJoints[armSegments] = {0};
 float armXJoints[armSegments] = {0};
+float offsetAngles[3] = {0};
 
 int jointMove = 0;
 
@@ -30,10 +31,18 @@ void loop()
   //joint disyance 
   jointDistance = calcJointDistance(distanceXYZ);
   //for each joint
-  for(jointMove = 0; jointMove <= armSegments; jointMove++)
+  
+  //calculate elbow joint angle
+  armXJoints[1] = jointAngle(toolPose, worldCoordinatePose, jointDistance);
+  //calculate base offset angle
+  calcTrigAngle(arm1Length, arm2Length, distanceXYZ, offsetAngles);
+  //apply offset
+  armXJoints[0] += offsetAngles[0];
+
+  for(jointMove = 0; jointMove <= sizeof(armXJoints); jointMove++)
   {
-    armXJoints[1] = jointAngle(toolPose, worldCoordinatePose, jointDistance);
-    MoveJointByAngle(angle, maxAngle, baseAxisZ);
+    //move joints to position
+    MoveJointByAngle(armXJoints[jointMove], maxAngle, baseAxisZ);
   }
   
 }
