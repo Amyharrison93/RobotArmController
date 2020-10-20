@@ -1,11 +1,10 @@
 //inverse kinematics functions
 #include "robot-arm-config.hpp"
 #include <math.h>
-//#include <vector>
-//using std::vector;
+
 
 //calculate the angle for the joints
-float* calcTrigAngle(float armeture1Length, float armeture2Length, float jointDistance)
+void calcTrigAngle(float armeture1Length, float armeture2Length, float jointDistance, float output[3])
 {
     float arm1LengthSqr = pow(armeture1Length,2);
     float arm2LengthSqr = pow(armeture2Length,2);
@@ -17,9 +16,9 @@ float* calcTrigAngle(float armeture1Length, float armeture2Length, float jointDi
     //C
     float joint3Angle = acos((arm1LengthSqr + arm2LengthSqr - arm3LengthSqr)/2*armeture1Length*armeture2Length);
     
-    float* jointAngles = new float[3] {joint1Angle, joint2Angle, joint3Angle};
-
-    return jointAngles;
+    output[0] = joint1Angle;
+    output[1] = joint2Angle;
+    output[2] = joint3Angle;
 }
 
 //calculated the distance between the joints by dividing the total distance to reach
@@ -42,17 +41,19 @@ float calcPointDistance(float* toolPosition, float* armBase)
     return distanceXYZ;
 }
 
-float baseAngle(float* toolPosition, float* armBase)
+float baseAngle(float toolPosition[], float armBase[])
 {
     float distance = calcPointDistance(toolPosition, armBase);
 
-    float angle = calcTrigAngle(toolPosition[0], toolPosition[2], distance)[0];
+    float angles[3] = {0};
+    calcTrigAngle(toolPosition[0], toolPosition[2], distance, angles);
 
-    return angle;
+    return angles[0];
 }
-float jointAngle(float* toolPosition, float* armBase, float distance)
+float jointAngle(float toolPosition[], float armBase[], float distance)
 {
-    float angle = calcTrigAngle(toolPosition[0], toolPosition[2], distance)[2];
+    float angles[3] = {0};
+    calcTrigAngle(toolPosition[0], toolPosition[2], distance, angles);
 
-    return angle;
+    return angles[2];
 }

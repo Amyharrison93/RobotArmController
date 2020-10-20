@@ -4,15 +4,14 @@
 #include "inverse-kinematics.h"
 
 
-float 
-  angle = 90,
-  distanceXYZ,
-  jointDistance,
-  toolPose[5] = {0},
-  armZJoints[armSegments] = {0},
-  armXJoints[armSegments] = {0};
-int
-  jointMove = 0;
+float angle = 90;
+float distanceXYZ = 0;
+float jointDistance = 0;
+float toolPose[5] = {0};
+float armZJoints[armSegments] = {0};
+float armXJoints[armSegments] = {0};
+
+int jointMove = 0;
 
 void setup() 
 {
@@ -33,7 +32,7 @@ void loop()
   //for each joint
   for(jointMove = 0; jointMove <= armSegments; jointMove++)
   {
-    angle = jointAngle(toolPose, worldCoordinatePose, jointDistance);
+    armXJoints[1] = jointAngle(toolPose, worldCoordinatePose, jointDistance);
     MoveJointByAngle(angle, maxAngle, baseAxisZ);
   }
   
