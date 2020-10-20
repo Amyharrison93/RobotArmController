@@ -1,6 +1,11 @@
 //add configuration elements to this file for easy editing.
 #ifndef ROBOT_ARM_CONFIG_H
 #define ROBOT_ARM_CONFIG_H
+#include <vector>
+using std::vector;
+
+//robot arm world position, change reletive to what you want to be moving to
+const vector<float> worldCoordinatePose = {0,0,0,0,0,0};
 
 //frequency of pins uno: 490, 980
 const int frequencyHigh = 980;

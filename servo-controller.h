@@ -1,3 +1,4 @@
+//controller for servo motors
 #pragma once
 
 float AngleToPWM(float angle, float maxAngle);
