@@ -2,17 +2,15 @@
 #include "servo-controller.h"
 #include "robot-arm-config.hpp"
 #include "inverse-kinematics.h"
-#include <vector>
-using std::vector;
+
 
 float 
   angle = 90,
   distanceXYZ,
-  jointDistance;
-vector<float>
-  toolPose = {0,0,0,0,0,0},
-  armZJoints(armSegments,0),
-  armXJoints(armSegments,0);
+  jointDistance,
+  toolPose[5] = {0},
+  armZJoints[armSegments] = {0},
+  armXJoints[armSegments] = {0};
 int
   jointMove = 0;
 
@@ -20,6 +18,7 @@ void setup()
 {
   // pin definitions
 }
+
 
 void loop() 
 {
